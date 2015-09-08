@@ -1,44 +1,29 @@
+require 'pry'
+
 class Rat
   SPECIES = {
-    Rattus: "Rattus rattus",
-    Norvegian: "Rattus norvegian"
+    'Rattus' => 'Rattus rattus',
+    'Norvegicus' => 'Rattus norvegicus'
   }
 
-  attr_accessor :name
-
-  def initialize(name="", class="mammal")
+  def initialize
     @name = nil
-    @skills = []
+    @tricks = []
+  end
+
+  def name(what_you_called)
+    @name = what_you_called
   end
 
   def species
-    SPECIES[name.to_sym]
+    SPECIES[@name]
   end
 
-  def learning(*tricks)
-    @skills.concat(tricks)
+  def learning(*args)
+    @tricks.concat(args)
   end
 
   def number_of_skills
-    @skills.count
+    @tricks.count
   end
-
-  # class << self
-  #   def method1
-  #   end
-
-  #   def method2
-  #   end
-  # end
-
-  # def self.classy
-    
-  # end
-
-  # def classy
-    
-  # end
 end
-
-# Rat.classy => class method
-# Rat.new.classy => instance method
